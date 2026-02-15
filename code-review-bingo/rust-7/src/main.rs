@@ -1,26 +1,4 @@
-// fn main() {
-//     std::io::stdin()
-//         .lines()
-//         .next()
-//         .expect("Error when Reading The First Line")
-//         .expect("Error when Reading The First Line");
-//
-//     let mut input = String::new();
-//     std::io::stdin()
-//         .read_line(&mut input)
-//         .expect("Error when Reading The Second Line");
-//     let mut s: Vec<char> = input.trim().chars().collect();
-//     s.sort();
-//
-//     let mut input = String::new();
-//     std::io::stdin()
-//         .read_line(&mut input)
-//         .expect("Error when Reading The Second Line");
-//     let mut t: Vec<char> = input.trim().chars().collect();
-//     t.sort();
-//
-//     println!("{}", if s == t { "Yes" } else { "No" });
-// }
+use std::iter::FromIterator;
 
 fn main() {
     let mut lines = std::io::stdin().lines();
