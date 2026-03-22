@@ -1,0 +1,4 @@
+[workspace]
+members = ["tabata", "yotsuya"]
+
+resolver = "2"

@@ -14,13 +14,14 @@
     }:
     let
       system = "x86_64-linux";
+      rust-version = "1.75.0";
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           rust-overlay.overlays.default
         ];
       };
-      rustToolchain = pkgs.rust-bin.stable.latest.default.override {
+      rustToolchain = pkgs.rust-bin.stable."${rust-version}".default.override {
         extensions = [
           "rust-src"
           "rust-analyzer"
@@ -33,8 +34,10 @@
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           rustToolchain
+          pkgs.python315
         ];
 
+        RUST_ANAL_PATH = "${rustToolchain}/bin/rust-analyzer";
         RUST_BACKTRACE = "1";
 
         shellHook = ''
